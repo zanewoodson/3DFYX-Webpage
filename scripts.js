@@ -1,8 +1,9 @@
 const intro = document.querySelector('#indroduction');
 const video = intro.querySelector('video');
 const heroHeadline = intro.querySelector('.hero-headline');
+const heroDescription = intro.querySelector('.copy1');
 
-const section = document.querySelector('.canvas-scene-component');
+const section = document.querySelector('#indroduction');
 const end = document.querySelector('#noVelocity');
 
 //SCROLLMAGIC
@@ -18,16 +19,31 @@ let scene = new ScrollMagic.Scene({
 .setPin(intro)
 .addTo(controller);
 
-//Text Animation
-const textAnim = TweenMax.fromTo(heroHeadline, 3, {opacity:1,bottom:0}, {opacity:0, bottom:100});
+//headline Animation
+const headlineAnim = TweenMax.fromTo(heroHeadline, 3, {opacity:1,bottom:0}, {opacity:0, bottom:100});
 
 let scene2 = new ScrollMagic.Scene({
   duration: 2000,
   triggerElement: intro,
   triggerHook: 0
 })
-.setTween(textAnim)
+.setTween(headlineAnim)
 .addTo(controller);
+
+
+// Description Animation
+const heroCopy = TweenMax.fromTo(heroDescription, 3, {opacity:0,bottom:100}, {opacity:1, bottom:0});
+
+let scene3 = new ScrollMagic.Scene({
+  duration: 2000,
+  triggerElement: intro,
+  triggerHook: 1,
+  offset: 4000
+})
+.setTween(heroCopy)
+.addTo(controller);
+
+
 
 
 //Intro Animations
