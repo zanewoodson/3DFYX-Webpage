@@ -19,9 +19,9 @@ section {
   background-size: cover;
   background-position: center;
 }
-#indroduction video {
+#indroduction img {
   width: 100vw;
-  height: 100%;
+  height: 100vh;
   object-fit: cover;
 }
 .copy-scroll-container {
