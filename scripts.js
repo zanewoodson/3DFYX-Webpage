@@ -45,7 +45,7 @@ const end = document.querySelector('#noVelocity');
 const controller = new ScrollMagic.Controller();
 
 let scene = new ScrollMagic.Scene({
-  duration: 2900,
+  duration: 3090,
   triggerElement: intro,
   triggerHook: 0
 })
@@ -60,7 +60,7 @@ let blurVid = new ScrollMagic.Scene ({
   duration: 1000,
   triggerElement: intro,
   triggerHook: 0.5,
-  offset: 2800
+  offset: 2900
 })
 .setTween(blurBackground)
 .addTo(controller);
@@ -87,8 +87,8 @@ const heroCopy = TweenMax.fromTo(heroDescription, 3, {opacity:0,bottom:100}, {op
 let scene3 = new ScrollMagic.Scene({
   duration: 500,
   triggerElement: intro,
-  triggerHook: 1,
-  offset: 2500
+  triggerHook: 0,
+  offset: 1500
 })
 .setTween(heroCopy)
 .addTo(controller);
