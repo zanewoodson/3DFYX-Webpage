@@ -339,7 +339,7 @@ let headingImages = [
     	);
 
     let scene4 = new ScrollMagic.Scene({
-      duration: 600,
+      duration: 800,
       triggerElement: headingAnimation,
       triggerHook: 0.5
     })
@@ -347,7 +347,7 @@ let headingImages = [
     .addTo(controller);
 
     let scene5 = new ScrollMagic.Scene({
-      duration: 500,
+      duration: 750,
       triggerElement: headingAnimation,
       triggerHook: 0.5
     })
