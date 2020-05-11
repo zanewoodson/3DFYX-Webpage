@@ -48,6 +48,11 @@ const headingGizmaAnimation = document.querySelector('#headingGizmoAnimation');
 //SCROLLMAGIC
 const controller = new ScrollMagic.Controller();
 
+// Smooth Start
+let run = gsap.timeline();
+run.fromTo(video, 1, {opacity:0,scale:0.5,ease:Power4.easeOut}, {opacity:1, scale:1})
+.fromTo(heroHeadline, 1, {opacity:0,bottom:100}, {opacity:1, bottom:0});
+
 // Intro Image Sequence //
 let heroImages = [
     "images/hero-animation0001.png",
@@ -184,7 +189,7 @@ introLine.fromTo(heroDescription, 5, {opacity:0}, {opacity:1})
 .fromTo(features, 5, {opacity:0}, {opacity:1});
 
 //headline Animation
-const headlineAnim = TweenMax.fromTo(heroHeadline, 3, {opacity:1,bottom:0}, {opacity:0, bottom:100});
+const headlineAnim = TweenMax.to(heroHeadline, 3, {opacity:0,bottom:100});
 
 let scene2 = new ScrollMagic.Scene({
   duration: 500,

@@ -14,6 +14,7 @@ section {
 }
 #indroduction {
   height: 100vh;
+  width: 100vw;
   background: #000;
   background-size: cover;
   background-position: center;
@@ -86,6 +87,7 @@ section {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  opacity: 0;
 }
 .hero-headline h1 {
   color: #fff;
