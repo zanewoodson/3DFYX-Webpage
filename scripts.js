@@ -32,7 +32,9 @@
         }
     });
 })();
-window.onload = function() {
+document.addEventListener("DOMContentLoaded", function(event) {
+  window.onload = function() {
+    window.requestAnimationFrame(function() {
 const intro = document.querySelector('#indroduction');
 const video = intro.querySelector('#heroIntroAnimation');
 const heroHeadline = intro.querySelector('.hero-headline');
@@ -359,4 +361,8 @@ let headingImages = [
     })
     .setTween(headingGizmo)
     .addTo(controller);
-}
+  });
+
+};
+
+});
