@@ -167,7 +167,7 @@ let tween = TweenMax.to(obj, 0.5,
 	);
 
 let scene = new ScrollMagic.Scene({
-  duration: 3090,
+  duration: 1400,
   triggerElement: intro,
   triggerHook: 0
 })
@@ -179,7 +179,8 @@ let scene = new ScrollMagic.Scene({
 let introLine = gsap.timeline();
 
 introLine.fromTo(heroDescription, 5, {opacity:0}, {opacity:1})
-.to(heroDescription, 5, {opacity:0}, 20 )
+.to(heroDescription, 5, {opacity:0}, 15 )
+.to(video, 5, {opacity:0.3})
 .fromTo(features, 5, {opacity:0}, {opacity:1});
 
 //headline Animation
@@ -194,10 +195,10 @@ let scene2 = new ScrollMagic.Scene({
 .addTo(controller);
 
 let scene3 = new ScrollMagic.Scene({
-  duration: 1000,
+  duration: 1200,
   triggerElement: intro,
   triggerHook: 0,
-  offset: 500
+  offset: 300
 })
 .setTween(introLine)
 .addTo(controller);
