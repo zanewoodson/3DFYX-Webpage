@@ -10,6 +10,7 @@ const section = document.querySelector('#indroduction');
 
 
 const headingAnimation = document.querySelector('.heading-animation-frame');
+const headingAnimationContainer = document.querySelector('.heading-image-sequence-component');
 const headingGizmaAnimation = document.querySelector('#headingGizmoAnimation');
 const velocitySection = document.querySelector('#noVelocity');
 
@@ -316,7 +317,7 @@ let headingImages = [
     	);
 
       let headingAnimationIntro = gsap.timeline();
-      headingAnimationIntro.to(headingAnimation, 5, {width:"100vw",height:"100vh"});
+      headingAnimationIntro.to(headingAnimation, 5, {width:"100vw"});
 
       let scene6 = new ScrollMagic.Scene({
         duration: 500,
@@ -325,6 +326,15 @@ let headingImages = [
       })
       .addIndicators({name: "Scale Animation Viewport"})
       .setTween(headingAnimationIntro)
+      .addTo(controller);
+
+      let scene7 = new ScrollMagic.Scene({
+        duration: 500,
+        triggerElement: headingAnimation,
+        triggerHook: 0
+      })
+      .addIndicators({name: "Set Pin"})
+      .setPin(headingAnimationContainer)
       .addTo(controller);
 
     let scene4 = new ScrollMagic.Scene({

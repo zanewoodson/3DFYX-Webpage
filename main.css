@@ -172,6 +172,8 @@ text-align: center;
   margin: 0 auto;
 }
 .heading-image-sequence-component {
+  height: 100vh;
+  width: 100vw;
   position: relative;
   display: flex;
   justify-content: center;
