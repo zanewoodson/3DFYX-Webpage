@@ -1,37 +1,3 @@
-(function() {
-    const blurProperty = gsap.utils.checkPrefix("filter"),
-            blurExp = /blur\((.+)?px\)/,
-            getBlurMatch = target => (gsap.getProperty(target, blurProperty) || "").match(blurExp) || [];
-
-    gsap.registerPlugin({
-        name: "blur",
-        get(target) {
-            return +(getBlurMatch(target)[1]) || 0;
-        },
-        init(target, endValue) {
-            let data = this,
-          filter = gsap.getProperty(target, blurProperty),
-          endBlur = "blur(" + endValue + "px)",
-          match = getBlurMatch(target)[0],
-          index;
-      if (filter === "none") {
-        filter = "";
-      }
-      if (match) {
-        index = filter.indexOf(match);
-        endValue = filter.substr(0, index) + endBlur + filter.substr(index + match.length);
-      } else {
-        endValue = filter + endBlur;
-        filter += filter ? " blur(0px)" : "blur(0px)";
-      }
-      data.target = target;
-      data.interp = gsap.utils.interpolate(filter, endValue);
-        },
-        render(progress, data) {
-            data.target.style[blurProperty] = data.interp(progress);
-        }
-    });
-})();
 document.addEventListener("DOMContentLoaded", function(event) {
   window.onload = function() {
     window.requestAnimationFrame(function() {
@@ -41,11 +7,11 @@ const heroHeadline = intro.querySelector('.hero-headline');
 const heroDescription = intro.querySelector('.copy1');
 const features = intro.querySelector('.copy2');
 const section = document.querySelector('#indroduction');
-const end = document.querySelector('#noVelocity');
 
 
-const headingAnimation = document.querySelector('.heading-image-sequence-component');
+const headingAnimation = document.querySelector('.heading-animation-frame');
 const headingGizmaAnimation = document.querySelector('#headingGizmoAnimation');
+const velocitySection = document.querySelector('#noVelocity');
 
 //SCROLLMAGIC
 const controller = new ScrollMagic.Controller();
@@ -178,6 +144,7 @@ let scene = new ScrollMagic.Scene({
   triggerElement: intro,
   triggerHook: 0
 })
+.addIndicators({name: "Hero Sequence"})
 .setTween(tween)
 .setPin(intro)
 .addTo(controller);
@@ -198,6 +165,7 @@ let scene2 = new ScrollMagic.Scene({
   triggerElement: intro,
   triggerHook: 0
 })
+.addIndicators({name: "Title Animation"})
 .setTween(headlineAnim)
 .addTo(controller);
 
@@ -207,6 +175,7 @@ let scene3 = new ScrollMagic.Scene({
   triggerHook: 0,
   offset: 300
 })
+.addIndicators({name: "Hero Copy"})
 .setTween(introLine)
 .addTo(controller);
 
@@ -346,23 +315,36 @@ let headingImages = [
     		}
     	);
 
+      let headingAnimationIntro = gsap.timeline();
+      headingAnimationIntro.to(headingAnimation, 5, {width:"100vw",height:"100vh"});
+
+      let scene6 = new ScrollMagic.Scene({
+        duration: 500,
+        triggerElement: velocitySection,
+        triggerHook: 0.3
+      })
+      .addIndicators({name: "Scale Animation Viewport"})
+      .setTween(headingAnimationIntro)
+      .addTo(controller);
+
     let scene4 = new ScrollMagic.Scene({
-      duration: 800,
+      duration: 1000,
       triggerElement: headingAnimation,
       triggerHook: 0.5
     })
+    .addIndicators({name: "Start Heading Animation"})
     .setTween(headingAnima)
     .addTo(controller);
 
     let scene5 = new ScrollMagic.Scene({
-      duration: 750,
+      duration: 1000,
       triggerElement: headingAnimation,
       triggerHook: 0.5
     })
+    .addIndicators({parent: headingAnima, name: "Start Gizmo Animation"})
     .setTween(headingGizmo)
     .addTo(controller);
+
   });
-
 };
-
 });
