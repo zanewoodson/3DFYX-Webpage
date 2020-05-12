@@ -17,11 +17,6 @@ const velocitySection = document.querySelector('#noVelocity');
 //SCROLLMAGIC
 const controller = new ScrollMagic.Controller();
 
-// Smooth Start
-let run = gsap.timeline();
-run.fromTo(video, 1, {opacity:0,scale:0.5,ease:Power4.easeOut}, {opacity:1, scale:1})
-.fromTo(heroHeadline, 1, {opacity:0,bottom:100}, {opacity:1, bottom:0});
-
 // Intro Image Sequence //
 let heroImages = [
     "images/hero-animation0001.png",
@@ -145,7 +140,6 @@ let scene = new ScrollMagic.Scene({
   triggerElement: intro,
   triggerHook: 0
 })
-.addIndicators({name: "Hero Sequence"})
 .setTween(tween)
 .setPin(intro)
 .addTo(controller);
@@ -154,9 +148,9 @@ let scene = new ScrollMagic.Scene({
 let introLine = gsap.timeline();
 
 introLine.fromTo(heroDescription, 5, {opacity:0}, {opacity:1})
-.to(heroDescription, 5, {opacity:0}, 15 )
-.to(video, 5, {opacity:0.3})
-.fromTo(features, 5, {opacity:0}, {opacity:1});
+.to(heroDescription, 5, {opacity:0}, 30 )
+.to(video, 4, {opacity:0.3})
+.fromTo(features, 2, {opacity:0}, {opacity:1});
 
 //headline Animation
 const headlineAnim = TweenMax.to(heroHeadline, 3, {opacity:0,bottom:100});
@@ -166,17 +160,15 @@ let scene2 = new ScrollMagic.Scene({
   triggerElement: intro,
   triggerHook: 0
 })
-.addIndicators({name: "Title Animation"})
 .setTween(headlineAnim)
 .addTo(controller);
 
 let scene3 = new ScrollMagic.Scene({
-  duration: 1200,
+  duration: 1000,
   triggerElement: intro,
   triggerHook: 0,
-  offset: 300
+  offset: 250
 })
-.addIndicators({name: "Hero Copy"})
 .setTween(introLine)
 .addTo(controller);
 
@@ -324,7 +316,6 @@ let headingImages = [
         triggerElement: velocitySection,
         triggerHook: 0.3
       })
-      .addIndicators({name: "Scale Animation Viewport"})
       .setTween(headingAnimationIntro)
       .addTo(controller);
 
@@ -333,7 +324,6 @@ let headingImages = [
         triggerElement: headingAnimation,
         triggerHook: 0
       })
-      .addIndicators({name: "Set Pin"})
       .setPin(headingAnimationContainer)
       .addTo(controller);
 
@@ -342,7 +332,6 @@ let headingImages = [
       triggerElement: headingAnimation,
       triggerHook: 0.5
     })
-    .addIndicators({name: "Start Heading Animation"})
     .setTween(headingAnima)
     .addTo(controller);
 
@@ -351,7 +340,6 @@ let headingImages = [
       triggerElement: headingAnimation,
       triggerHook: 0.5
     })
-    .addIndicators({parent: headingAnima, name: "Start Gizmo Animation"})
     .setTween(headingGizmo)
     .addTo(controller);
 
