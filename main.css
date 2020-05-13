@@ -183,10 +183,9 @@ text-align: center;
   width: 70%;
 }
 .gizmo-overlay {
-  position: absolute;
-  left: 50px;
-  bottom: 50px;
+  position: relative;
+  left: 200px;
 }
 .gizmo-overlay img {
-  width: 60%;
+  width: 70%;
 }
