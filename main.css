@@ -48,6 +48,14 @@ section {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 50% 50%;
+  padding-top: 300px;
+  padding-bottom: 150px;
+}
+.topic-cover-two-thirds {
+  width: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 25% 75%;
   padding-top: 200px;
   padding-bottom: 50px;
 }
@@ -170,6 +178,36 @@ text-align: center;
   width: 80%;
   margin: 0 auto;
 }
+.animation-captions {
+  position: absolute;
+  width:500px;
+  height: auto;
+  left:10%;
+  top: 150px;
+  color: #fff;
+  z-index: 2;
+}
+.animation-captions h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+.animation-captions p {
+  font-size: 18px;
+  line-height: 1.5;
+  color: #666;
+}
+.heading-animation-copy {
+}
+.pitch-animation-copy {
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+.roll-animation-copy {
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
 .heading-image-sequence-component {
   height: 100vh;
   width: 100vw;
@@ -179,13 +217,45 @@ text-align: center;
   align-items: center;
   padding: 20px 0;
 }
+#headingAnimation {
+  position: absolute;
+}
+#pitchAnimation {
+  position: absolute;
+  opacity: 0;
+}
+#rollAnimation {
+  position: absolute;
+  opacity: 0;
+}
 .heading-image-sequence-component img {
   width: 70%;
 }
 .gizmo-overlay {
-  position: relative;
+  position: absolute;
   left: 200px;
 }
 .gizmo-overlay img {
   width: 70%;
+}
+.integration-examples {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 20px;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+.integration-image-container {
+  display: block;
+  background-color: #000;
+  height: 300px;
+}
+.fyx-chip {
+  width: 100%;
+  height: 100%;
+  background-image: url('images/fyx-chip@2x.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }

@@ -1,6 +1,9 @@
+// Start once DOM and browser is loaded
 document.addEventListener("DOMContentLoaded", function(event) {
   window.onload = function() {
     window.requestAnimationFrame(function() {
+
+// Hero Animation Variables
 const intro = document.querySelector('#indroduction');
 const video = intro.querySelector('#heroIntroAnimation');
 const heroHeadline = intro.querySelector('.hero-headline');
@@ -9,15 +12,23 @@ const features = intro.querySelector('.copy2');
 const section = document.querySelector('#indroduction');
 
 
+// 3DFYX Scroll Animation Variables
 const headingAnimation = document.querySelector('.heading-animation-frame');
 const headingAnimationContainer = document.querySelector('.heading-image-sequence-component');
 const headingGizmaAnimation = document.querySelector('#headingGizmoAnimation');
 const velocitySection = document.querySelector('#noVelocity');
+const animationCaptions = headingAnimation.querySelector('.animation-captions');
+const headingAnimationCopy = headingAnimation.querySelector('.heading-animation-copy');
+const pitchAnimationCopy = headingAnimation.querySelector('.pitch-animation-copy');
+const pitchAnimationImg = headingAnimation.querySelector('#pitchAnimation');
+const headingAnimationImg = headingAnimation.querySelector('#headingAnimation');
+const rollAnimationImg = headingAnimation.querySelector('#rollAnimation');
+const rollAnimationCopy = headingAnimation.querySelector('.roll-animation-copy');
 
-//SCROLLMAGIC
+// SCROLLMAGIC Controller
 const controller = new ScrollMagic.Controller();
 
-// Intro Image Sequence //
+// Intro Image Sequence
 let heroImages = [
     "images/hero-animation0001.png",
     "images/hero-animation0002.png",
@@ -120,8 +131,10 @@ let heroImages = [
     "images/hero-animation0099.png",
     "images/hero-animation0100.png",
 	];
+// Sets Start Image
 let obj = {curImg: 0};
 
+// Hero BG Animation Sequence Parameters
 let tween = TweenMax.to(obj, 0.5,
 		{
 			curImg: heroImages.length - 1,	// animate propery curImg to number of images
@@ -309,18 +322,203 @@ let headingImages = [
     	);
 
       let headingAnimationIntro = gsap.timeline();
-      headingAnimationIntro.to(headingAnimation, 5, {width:"100vw"});
+      headingAnimationIntro.to(headingAnimation, 0.8, {duration: 2, width:"100vw"})
+      .fromTo(animationCaptions, 0.5, {left:'15%', opacity:0}, {left:'10%', opacity:1});
+
+// Pitch Animation Parameters
+
+// Pitch Image Sequence
+let pitchImages = [
+    "images/Pitch_00000.png",
+    "images/Pitch_00001.png",
+    "images/Pitch_00002.png",
+    "images/Pitch_00003.png",
+    "images/Pitch_00004.png",
+    "images/Pitch_00005.png",
+    "images/Pitch_00006.png",
+    "images/Pitch_00007.png",
+    "images/Pitch_00008.png",
+    "images/Pitch_00009.png",
+    "images/Pitch_00010.png",
+    "images/Pitch_00011.png",
+    "images/Pitch_00012.png",
+    "images/Pitch_00013.png",
+    "images/Pitch_00014.png",
+    "images/Pitch_00015.png",
+    "images/Pitch_00016.png",
+    "images/Pitch_00017.png",
+    "images/Pitch_00018.png",
+    "images/Pitch_00019.png",
+    "images/Pitch_00020.png",
+    "images/Pitch_00021.png",
+    "images/Pitch_00022.png",
+    "images/Pitch_00023.png",
+    "images/Pitch_00024.png",
+    "images/Pitch_00025.png",
+    "images/Pitch_00026.png",
+    "images/Pitch_00027.png",
+    "images/Pitch_00028.png",
+    "images/Pitch_00029.png",
+    "images/Pitch_00030.png",
+    "images/Pitch_00031.png",
+    "images/Pitch_00032.png",
+    "images/Pitch_00033.png",
+    "images/Pitch_00034.png",
+    "images/Pitch_00035.png",
+    "images/Pitch_00036.png",
+    "images/Pitch_00037.png",
+    "images/Pitch_00038.png",
+    "images/Pitch_00039.png",
+    "images/Pitch_00040.png",
+    "images/Pitch_00041.png",
+    "images/Pitch_00042.png",
+    "images/Pitch_00043.png",
+    "images/Pitch_00044.png",
+    "images/Pitch_00045.png",
+    "images/Pitch_00046.png",
+    "images/Pitch_00047.png",
+    "images/Pitch_00048.png",
+    "images/Pitch_00049.png",
+	];
+  let pitchObj = {curImg: 0};
+  let pitchAnima = TweenMax.to(pitchObj, 0.5,
+      {
+        curImg: pitchImages.length - 1,	// animate propery curImg to number of images
+        roundProps: "curImg",				// only integers so it can be used as an array index
+        repeat: 0,									// repeat 3 times
+        immediateRender: true,			// load first image automatically
+        ease: Linear.easeNone,			// show every image the same ammount of time
+        onUpdate: function () {
+          $("#pitchAnimation").attr("src", pitchImages[pitchObj.curImg]); // set the image source
+        }
+      }
+    );
+
+    // Pitch Image Sequence
+    let rollImages = [
+        "images/Roll_00000.png",
+        "images/Roll_00001.png",
+        "images/Roll_00002.png",
+        "images/Roll_00003.png",
+        "images/Roll_00004.png",
+        "images/Roll_00005.png",
+        "images/Roll_00006.png",
+        "images/Roll_00007.png",
+        "images/Roll_00008.png",
+        "images/Roll_00009.png",
+        "images/Roll_00010.png",
+        "images/Roll_00011.png",
+        "images/Roll_00012.png",
+        "images/Roll_00013.png",
+        "images/Roll_00014.png",
+        "images/Roll_00015.png",
+        "images/Roll_00016.png",
+        "images/Roll_00017.png",
+        "images/Roll_00018.png",
+        "images/Roll_00019.png",
+        "images/Roll_00020.png",
+        "images/Roll_00021.png",
+        "images/Roll_00022.png",
+        "images/Roll_00023.png",
+        "images/Roll_00024.png",
+        "images/Roll_00025.png",
+        "images/Roll_00026.png",
+        "images/Roll_00027.png",
+        "images/Roll_00028.png",
+        "images/Roll_00029.png",
+        "images/Roll_00030.png",
+        "images/Roll_00031.png",
+        "images/Roll_00032.png",
+        "images/Roll_00033.png",
+        "images/Roll_00034.png",
+        "images/Roll_00035.png",
+        "images/Roll_00036.png",
+        "images/Roll_00037.png",
+        "images/Roll_00038.png",
+        "images/Roll_00039.png",
+        "images/Roll_00040.png",
+        "images/Roll_00041.png",
+        "images/Roll_00042.png",
+        "images/Roll_00043.png",
+        "images/Roll_00044.png",
+        "images/Roll_00045.png",
+        "images/Roll_00046.png",
+        "images/Roll_00047.png",
+        "images/Roll_00048.png",
+        "images/Roll_00049.png",
+    	];
+      let rollObj = {curImg: 0};
+      let rollAnima = TweenMax.to(rollObj, 0.5,
+          {
+            curImg: rollImages.length - 1,	// animate propery curImg to number of images
+            roundProps: "curImg",				// only integers so it can be used as an array index
+            repeat: 0,									// repeat 3 times
+            immediateRender: true,			// load first image automatically
+            ease: Linear.easeNone,			// show every image the same ammount of time
+            onUpdate: function () {
+              $("#rollAnimation").attr("src", rollImages[rollObj.curImg]); // set the image source
+            }
+          }
+        );
+
+      let pitchAnimationIntro = gsap.timeline({delay:0.5});
+      pitchAnimationIntro.to(headingAnimationCopy, 0.5, {left:'15%', opacity:0})
+      .to(headingGizmaAnimation, 0.1, {opacity:0})
+      .to(headingAnimationImg, 0.4, {opacity:0})
+      .to(pitchAnimationImg, 0.4, {opacity:1})
+      .fromTo(pitchAnimationCopy, 0.5, {left:'15%', opacity:0}, {left:'10%', opacity:1});
+
+      let rollAnimationIntro = gsap.timeline({delay:0.5});
+      rollAnimationIntro.to(pitchAnimationImg, 0.4, {opacity:0})
+      .to(pitchAnimationCopy, 0.5, {opacity:0})
+      .fromTo(rollAnimationCopy, 0.5, {left:'15%', opacity:0}, {left:'10%', opacity:1})
+      .to(rollAnimationImg, 0.4, {opacity:1});
+
+      let scene9 = new ScrollMagic.Scene({
+        duration: 1000,
+        triggerElement: headingAnimation,
+        triggerHook: 0.5,
+        offset: 2800
+      })
+      .setTween(pitchAnima)
+      .addTo(controller);
+
+      let scene10 = new ScrollMagic.Scene({
+        duration: 1000,
+        triggerElement: headingAnimation,
+        triggerHook: 0.5,
+        offset: 4500
+      })
+      .setTween(rollAnima)
+      .addTo(controller);
+
+      let scene11 = new ScrollMagic.Scene({
+        duration: 1500,
+        triggerElement: headingAnimation,
+        triggerHook: 0.5,
+        offset: 3200
+      })
+      .setTween(rollAnimationIntro)
+      .addTo(controller);
 
       let scene6 = new ScrollMagic.Scene({
-        duration: 500,
         triggerElement: velocitySection,
         triggerHook: 0.3
       })
       .setTween(headingAnimationIntro)
       .addTo(controller);
 
+      let scene8 = new ScrollMagic.Scene({
+        duration: 1500,
+        triggerElement: headingAnimation,
+        triggerHook: 0.5,
+        offset: 1400
+      })
+      .setTween(pitchAnimationIntro)
+      .addTo(controller);
+
       let scene7 = new ScrollMagic.Scene({
-        duration: 500,
+        duration: 5000,
         triggerElement: headingAnimation,
         triggerHook: 0
       })
@@ -330,7 +528,8 @@ let headingImages = [
     let scene4 = new ScrollMagic.Scene({
       duration: 1000,
       triggerElement: headingAnimation,
-      triggerHook: 0.5
+      triggerHook: 0.5,
+      offset: 500
     })
     .setTween(headingAnima)
     .addTo(controller);
@@ -338,7 +537,8 @@ let headingImages = [
     let scene5 = new ScrollMagic.Scene({
       duration: 1000,
       triggerElement: headingAnimation,
-      triggerHook: 0.5
+      triggerHook: 0.5,
+      offset: 500
     })
     .setTween(headingGizmo)
     .addTo(controller);
