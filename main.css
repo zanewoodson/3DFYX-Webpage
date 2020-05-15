@@ -183,7 +183,7 @@ text-align: center;
   width:500px;
   height: auto;
   left:10%;
-  top: 150px;
+  top: 0;
   color: #fff;
   z-index: 2;
 }
@@ -213,6 +213,7 @@ text-align: center;
   width: 100vw;
   position: relative;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   padding: 20px 0;
@@ -233,7 +234,7 @@ text-align: center;
 }
 .gizmo-overlay {
   position: absolute;
-  left: 200px;
+  left: 8%;
 }
 .gizmo-overlay img {
   width: 70%;
@@ -258,4 +259,105 @@ text-align: center;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
+}
+@media only screen and (max-width: 600px) {
+  .topic-cover {
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    padding-top: 150px;
+    padding-bottom: 150px;
+  }
+  .cover-left-content h1 {
+    color: #fff;
+    font-size: 50px;
+    margin-bottom: 20px;
+    max-width: 80%;
+}
+.cover-right-content h1 {
+    color: #fff;
+    font-size: 50px;
+    margin-bottom: 20px;
+    max-width: 80%;
+}
+  .topic-cover-two-thirds {
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 3fr;
+    padding-top: 200px;
+    padding-bottom: 50px;
+}
+.integration-examples {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    row-gap: 20px;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+.fyx-chip {
+    width: 200px;
+    height: 200px;
+}
+  .animation-captions {
+    position: relative;
+    width:80%;
+    margin: 0 auto;
+    height: auto;
+    top: 0;
+    margin-top: 0;
+    color: #fff;
+    left: 0 !important;
+  }
+  .gizmo-overlay {
+    position: absolute;
+    bottom: 200px;
+    left: 55%;
+    transform: translate(-50%,50%);
+  }
+  .heading-image-sequence-component {
+    overflow: hidden;
+    align-items: start;
+  }
+  #headingAnimation {
+    position: relative !important;
+    width: 120%;
+  }
+  #pitchAnimation {
+    position: relative !important;
+    opacity: 0;
+    width: 120%;
+  }
+  #rollAnimation {
+    position: relative !important;
+    opacity: 0;
+    width: 120%;
+  }
+  .heroHeadline {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .hero-headline h1 {
+    font-size: 60px;
+  }
+  .hero-headline h2 {
+    font-size: 24px;
+  }
+  .copy1 {
+    font-size: 75%;
+    width: 80vw;
+  }
+  .feature-overview-grid-container {
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    column-gap: 50px;
+    row-gap: 30px;
+    padding: 20%;
+}
 }

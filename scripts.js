@@ -462,16 +462,16 @@ let pitchImages = [
         );
 
       let pitchAnimationIntro = gsap.timeline({delay:0.5});
-      pitchAnimationIntro.to(headingAnimationCopy, 0.5, {left:'15%', opacity:0})
-      .to(headingGizmaAnimation, 0.1, {opacity:0})
-      .to(headingAnimationImg, 0.4, {opacity:0})
+      pitchAnimationIntro.fromTo(headingAnimationCopy, 0.5, {marginTop: '150px', left:'10%', opacity:1, display:"static"}, {marginTop: '150px', left:'15%', opacity:0, display:"none"})
+      .to(headingGizmaAnimation, 0.1, {opacity:0, display:"none"})
+      .to(headingAnimationImg, 0.4, {opacity:0, display:"none"})
       .to(pitchAnimationImg, 0.4, {opacity:1})
-      .fromTo(pitchAnimationCopy, 0.5, {left:'15%', opacity:0}, {left:'10%', opacity:1});
+      .fromTo(pitchAnimationCopy, 0.5, {left:'10%', marginTop:'150px', opacity:0}, {left:'10%', marginTop:'150px', opacity:1});
 
       let rollAnimationIntro = gsap.timeline({delay:0.5});
-      rollAnimationIntro.to(pitchAnimationImg, 0.4, {opacity:0})
-      .to(pitchAnimationCopy, 0.5, {opacity:0})
-      .fromTo(rollAnimationCopy, 0.5, {left:'15%', opacity:0}, {left:'10%', opacity:1})
+      rollAnimationIntro.to(pitchAnimationImg, 0.4, {opacity:0, display:"none"})
+      .to(pitchAnimationCopy, 0.5, {opacity:0, display:"none"})
+      .fromTo(rollAnimationCopy, 0.5, {left:'10%',marginTop:'150px', opacity:0}, {left:'10%',marginTop:'150px', opacity:1})
       .to(rollAnimationImg, 0.4, {opacity:1});
 
       let scene9 = new ScrollMagic.Scene({
@@ -542,6 +542,14 @@ let pitchImages = [
     })
     .setTween(headingGizmo)
     .addTo(controller);
+
+    function scaleBasedOnWindow(headingAnimationContainer, scale=1, fit=false){
+    if(!fit){
+        headingAnimationContainer.style.transform='scale('+scale/Math.min(elm.clientWidth/window.innerWidth,elm.clientHeight/window.innerHeight)+')';
+    }else{
+        headingAnimationContainer.style.transform='scale('+scale/Math.max(elm.clientWidth/window.innerWidth,elm.clientHeight/window.innerHeight)+')';
+    }
+}
 
   });
 };
